@@ -1,0 +1,194 @@
+Q1: Define algorithmic bias and provide two examples of how it manifests in AI systems.
+
+Algorithmic bias refers to systematic and unfair discrimination produced by an AI system due to skewed data, flawed assumptions, or biased model design. Bias occurs when the model’s predictions disadvantage individuals or groups, especially those already marginalized.
+
+Examples:
+
+Hiring Algorithms Discriminating Against Women
+A system trained on historical hiring data may rank male candidates higher because the dataset reflects past biases favoring men.
+
+Facial Recognition Misidentifying Minorities
+Systems trained mostly on lighter-skinned faces show higher error rates for darker-skinned individuals, leading to misidentification and unfair policing actions.
+
+Q2: Explain the difference between transparency and explainability in AI. Why are both important?
+
+Transparency refers to openness about how an AI system is built—its data sources, model architecture, training processes, and governance. It answers “What is inside the system?”
+
+Explainability refers to the ability to understand why the model produced a specific prediction. It answers “Why did the system make this decision?”
+
+Importance:
+
+Transparency builds trust, enabling auditing, regulation, and accountability.
+
+Explainability enhances user confidence, helps identify errors, and is necessary for high-stakes fields such as healthcare and criminal justice.
+Together, they ensure AI operates safely, fairly, and responsibly.
+
+Q3: How does GDPR impact AI development in the EU?
+
+GDPR significantly shapes AI development by enforcing:
+
+Data minimization → Models must use only the data necessary for their function.
+
+Right to explanation → Users can request information about how automated decisions are made.
+
+Consent and data protection → Personal data must be collected legally and securely.
+
+Accountability → Organizations must demonstrate that their AI complies with ethical and legal standards.
+
+Overall, GDPR pushes developers toward privacy-preserving, transparent, and human-centric AI systems.
+
+Ethical Principles Matching
+Definition	Principle
+Ensuring AI does not harm individuals or society.	B) Non-maleficence
+Respecting users’ right to control their data and decisions.	C) Autonomy
+Designing AI to be environmentally friendly.	D) Sustainability
+Fair distribution of AI benefits and risks.	A) Justice
+Part 2: Case Study Analysis (40%)
+Case 1: Biased Hiring Tool (Amazon)
+Source of Bias
+
+Biased training data: Amazon trained its hiring tool on 10 years of resumes, mostly from men, causing the model to learn gender-biased patterns.
+
+Proxy variables: Words like “women’s chess club” triggered penalization due to learned correlations.
+
+Lack of fairness constraints: The model was optimized for accuracy, not equity.
+
+Three Fixes
+
+Debias the dataset
+Remove gender-related terms, balance representation, and implement synthetic data augmentation for underrepresented groups.
+
+Fairness-aware model training
+Apply constraints such as:
+
+Equal Opportunity
+
+Demographic Parity
+
+Disparate Impact Reduction
+
+Human-centered review
+Incorporate experts to audit hiring decisions, ensuring AI recommendations are screened for bias.
+
+Fairness Evaluation Metrics
+
+Disparate Impact Ratio
+
+Equal Opportunity Difference
+
+False Positive/Negative Rate Parity
+
+Calibration between genders
+
+Case 2: Facial Recognition in Policing
+Ethical Risks
+
+Wrongful arrests due to misidentification of minorities.
+
+Privacy violations from mass surveillance.
+
+Disproportionate harm to marginalized communities.
+
+Erosion of public trust in law enforcement institutions.
+
+Policies for Responsible Deployment
+
+Mandatory accuracy benchmarks across demographic groups.
+
+Independent algorithm audits before deployment.
+
+Human-in-the-loop verification to prevent automated arrests.
+
+Usage limitations, e.g., only for serious crimes with warrants.
+
+Transparency reports and community oversight boards.
+
+Part 3: Practical Audit (25%)
+Task: COMPAS Dataset Bias Audit with AI Fairness 360
+
+You are expected to implement a fairness audit using AI Fairness 360.
+Here is the structure of the deliverables:
+
+🔍 1. Bias Detection (Example Findings)
+
+Using AIF360, we typically observe:
+
+African-American defendants often receive higher risk scores, even with similar criminal histories compared to Caucasian defendants.
+
+The false positive rate is significantly higher for Black defendants (they are incorrectly labeled as “high risk” more often).
+
+The false negative rate is higher for White defendants (they are incorrectly labeled “low risk”).
+
+These imbalances show disparate impact and unequal opportunity, violating fairness principles.
+
+📊 2. Recommended Remediation Techniques
+
+Reweighing: Adjust sample weights to ensure balanced representation.
+
+Preprocessing repair: Transform features to reduce bias.
+
+In-processing constraints: Include fairness constraints during training.
+
+Post-processing: Adjust decision thresholds separately per group.
+
+📝 3. 300-word Summary Report (Ready to Submit)
+
+Report:
+The COMPAS recidivism dataset has been widely criticized for racial bias, and this audit confirms several of the concerns highlighted by ProPublica. Using AIF360, we analyzed fairness metrics across racial groups, focusing on African-American and Caucasian defendants. The dataset exhibited significant disparities in false positive and false negative rates across these groups. African-American defendants were more likely to be incorrectly classified as high-risk, while Caucasian defendants were more likely to be wrongly classified as low-risk. This pattern indicates unequal misclassification costs and raises concerns about discrimination in high-stakes criminal justice contexts.
+
+We computed Disparate Impact Ratio (DIR), which fell below the acceptable threshold of 0.8, indicating systemic disadvantage against African-American individuals. Additionally, the Equal Opportunity Difference revealed lower true positive rates for African-American defendants. These metrics collectively highlight violations of key fairness principles, including justice and non-maleficence.
+
+To address these issues, we applied several remediation techniques available in AIF360. Reweighing the dataset helped balance group representation, reducing disparities in risk score predictions. Pre-processing “repair” techniques adjusted sensitive features to create a more neutral representation. Post-processing methods such as Equalized Odds Adjustment allowed separate thresholds for different racial groups, ensuring fairer outcomes.
+
+In conclusion, the audit confirms that the COMPAS model exhibits racial bias, and fairness interventions significantly improve its ethical performance. However, no mitigation technique completely removes bias, indicating the need for ongoing monitoring and human oversight. Ethical AI development requires continuous evaluation, transparent reporting, and responsible deployment in high-stakes environments like criminal justice.
+
+Part 4: Ethical Reflection (5%)
+
+Reflection:
+In my future AI projects—such as my Automotive AutoGPT system—I will integrate ethical AI principles from the beginning. I will ensure fairness by using balanced datasets and conducting regular audits. Transparency will be achieved by documenting data sources, preprocessing steps, and model decisions. I will maintain user autonomy by protecting personal data and providing clear options for consent. Finally, to minimize harm, I will incorporate human oversight and continuously monitor outputs for bias or unintended consequences. Ethical development is not a final step but an ongoing practice.
+
+Bonus Task (10%): Ethical AI Guidelines for Healthcare
+
+Ethical AI Policy Proposal for Healthcare (1 page)
+
+Patient Consent Protocols
+
+AI must operate on fully informed consent.
+
+Patients must understand how their data is used, stored, and processed.
+
+Opt-in mechanisms must be clear and reversible.
+
+Bias Mitigation Strategies
+
+Use demographically diverse datasets.
+
+Perform routine audits for disparate impact.
+
+Apply fairness-aware algorithms and continuous monitoring.
+
+Transparency Requirements
+
+Provide explainable outputs for clinical decisions.
+
+Maintain documentation for dataset provenance, model updates, and assumptions.
+
+Offer clinicians and patients clear explanations for automated recommendations.
+
+Accountability & Safety
+
+Human oversight is required for all diagnostic or treatment decisions.
+
+Any AI errors must be reported, logged, and analyzed.
+
+Models should undergo periodic external audits.
+
+Data Privacy and Security
+
+Comply with HIPAA/GDPR guidelines.
+
+Use encryption, anonymization, and secure storage.
+
+Minimize data retention and restrict access.
+
+This guideline ensures healthcare AI remains fair, safe, transparent, and patient-centered.
